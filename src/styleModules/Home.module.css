@@ -1,0 +1,40 @@
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px 80px;
+}
+
+.hero {
+  margin-bottom: 48px;
+}
+
+.sub {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

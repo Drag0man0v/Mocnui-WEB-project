@@ -1,13 +1,26 @@
-import { BrowserRouter } from 'react-router-dom'
-import TrainList from './components/TrainList'
-import { trains } from './data/trains'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import styles from './styleModules/App.module.css'
+
+function Header() {
+  return (
+    <header className={styles.header}>
+      <a href="/" className={styles.logo}>
+        🚆 РЗ Квитки
+      </a>
+    </header>
+  )
+}
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
-        <TrainList trains={trains} />
-      </div>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   )
 }
