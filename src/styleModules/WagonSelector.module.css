@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.wagon {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  transition: border-color var(--transition), background var(--transition);
+  min-width: 90px;
+}
+
+.wagon:hover {
+  border-color: var(--text-muted);
+  background: var(--bg-card-hover);
+}
+
+.wagon.active {
+  border-color: var(--accent);
+  background: rgba(232, 200, 74, 0.07);
+}
+
+.wagonNum {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.type {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.sv {
+  color: #d4a3ff;
+  background: rgba(212, 163, 255, 0.1);
+}
+
+.kupe {
+  color: var(--blue);
+  background: rgba(74, 144, 232, 0.1);
+}
+
+.platzkart {
+  color: var(--green);
+  background: rgba(74, 207, 122, 0.1);
+}
+
+.free {
+  font-size: 11px;
+  color: var(--text-muted);
+}
