@@ -6,15 +6,8 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
-        <p className={styles.sub}>Укрзалізниця</p>
-        <h1 className={styles.heading}>
-          Залізничні<br />квитки онлайн
-        </h1>
-        <p className={styles.desc}>
-          Переглядайте розклад, обирайте вагон та бронюйте місця у кількох кліках
-        </p>
+        <h1 className={styles.heading}>Ростізниця</h1>
       </div>
-
       <div className={styles.content}>
         <TrainList trains={trains} />
       </div>
