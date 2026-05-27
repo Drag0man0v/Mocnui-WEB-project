@@ -21,7 +21,11 @@ export default function SeatMap({ trainId }) {
     return 'free';
   };
 
-  const columns = 4;
+  // ділимо місця на групи по 4 (2+2)
+  const groupedSeats = [];
+  for (let i = 0; i < selectedWagon.seats.length; i += 4) {
+    groupedSeats.push(selectedWagon.seats.slice(i, i + 4));
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -41,34 +45,43 @@ export default function SeatMap({ trainId }) {
       </div>
 
       <div className={styles.trainBody}>
-        <div className={styles.windowRow}>
-          {Array.from({ length: columns }).map((_, i) => (
-            <div key={i} className={styles.window} />
-          ))}
-        </div>
-
-        <div className={styles.grid} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
-          {selectedWagon.seats.map((seat) => {
-            const status = getSeatStatus(seat);
-            return (
-              <button
-                key={seat.id}
-                className={`${styles.seat} ${styles[status]}`}
-                disabled={status === 'booked'}
-                onClick={() => status !== 'booked' && toggleSeat(seat)}
-                title={`Місце ${seat.number}`}
-              >
-                <span className={styles.seatNum}>{seat.number}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        <div className={styles.windowRow}>
-          {Array.from({ length: columns }).map((_, i) => (
-            <div key={i} className={styles.window} />
-          ))}
-        </div>
+        {groupedSeats.map((group, groupIndex) => (
+          <div key={groupIndex} className={styles.seatGroup}>
+            <div className={styles.row}>
+              {group.slice(0, 2).map((seat) => {
+                const status = getSeatStatus(seat);
+                return (
+                  <button
+                    key={seat.id}
+                    className={`${styles.seat} ${styles[status]}`}
+                    disabled={status === 'booked'}
+                    onClick={() => status !== 'booked' && toggleSeat(seat)}
+                    title={`Місце ${seat.number}`}
+                  >
+                    <span className={styles.seatNum}>{seat.number}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className={styles.corridor} />
+            <div className={styles.row}>
+              {group.slice(2, 4).map((seat) => {
+                const status = getSeatStatus(seat);
+                return (
+                  <button
+                    key={seat.id}
+                    className={`${styles.seat} ${styles[status]}`}
+                    disabled={status === 'booked'}
+                    onClick={() => status !== 'booked' && toggleSeat(seat)}
+                    title={`Місце ${seat.number}`}
+                  >
+                    <span className={styles.seatNum}>{seat.number}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

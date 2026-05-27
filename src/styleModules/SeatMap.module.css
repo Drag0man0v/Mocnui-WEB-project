@@ -62,10 +62,13 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: fit-content;
+  align-self: flex-start;
+  max-width: 100%;
 }
 
 .windowRow {
@@ -100,8 +103,8 @@
   justify-content: center;
   transition: transform var(--transition), opacity var(--transition);
   cursor: pointer;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .seat:not(:disabled):hover {
@@ -113,13 +116,13 @@
 }
 
 .seat.free {
-  background: rgba(74, 207, 122, 0.15);
+  background: rgba(74, 207, 122, 0.12);
   color: var(--green);
-  border: 1px solid rgba(74, 207, 122, 0.3);
+  border: 1px solid rgba(74, 207, 122, 0.22);
 }
 
 .seat.free:hover {
-  background: rgba(74, 207, 122, 0.3);
+  background: rgba(74, 207, 122, 0.2);
 }
 
 .seat.selected {
@@ -142,4 +145,20 @@
     min-height: 28px;
     font-size: 10px;
   }
+}
+
+.seatGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  gap: 4px;
+}
+
+.corridor {
+  width: 20px;
+  flex-shrink: 0;
 }
